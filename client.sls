@@ -38,14 +38,23 @@ tsm_client_untar:
   - require:
     - cmd: tsm_client_untar
 
-{#
+/root/tsmc_lin_{{ tsm_version }}/ispc_install.sh:
+  file.managed:
+  - user: root
+  - group: root
+  - source: salt://tsm/conf/ispc_install.sh
+  - mode: 755
+  - template: jinja
+  - require:
+    - cmd: tsm_client_untar
+
 tsm_client_install:
   cmd.run:
-  - name: wget http://10.0.110.14/MIRRORS/CloudLabPisek/tsmc/tsmc_lin_{{ tsm_version }}.tar
-  - unless: "test -e /root/tsmc_lin_{{ tsm_version }}.tar"
+  - cwd: /root/tsmc_lin_{{ tsm_version }}
+  - name: ./ispc_install.sh {{ pillar.tsm.client.name }}
+  - unless: "test -e /opt/tivoli"
   - require:
-    - pkg: tsm_client_untar
-#}
+    - name: /root/tsmc_lin_{{ tsm_version }}/ispc_install.sh
 
 {% endif %}
 
