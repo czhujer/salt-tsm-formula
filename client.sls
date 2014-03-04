@@ -28,6 +28,16 @@ tsm_client_untar:
     - pkg: tsm_client_packages
     - file: tsm_client_install_dir
 
+/root/tsmc_lin_{{ tsm_version }}/dsm_gen.sys:
+  file.managed:
+  - user: root
+  - group: root
+  - source: salt://tsm/conf/dsm_gen.sys
+  - mode: 755
+  - template: jinja
+  - require:
+    - cmd: tsm_client_untar
+
 {#
 tsm_client_install:
   cmd.run:
@@ -40,9 +50,6 @@ tsm_client_install:
 {% endif %}
 
 {% if grains.kernel == 'Windows'  %}
-
-
-
 
 {% endif %}
 
