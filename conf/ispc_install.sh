@@ -70,13 +70,13 @@ TCPSERVER_ADDRESS=`grep TCPServeraddress $DSMSYS | cut -d " " -f 2`
 echo "TSM server address: $TCPSERVER_ADDRESS"
 echo "TSM node name: $NODE_NAME"
 echo 
-echo -n "Install TSM clinet? (y/n): "
-read -e AGREE_INST
-if [ $AGREE_INST != "y" ]
- then
-   echo "Install refused."
-   exit 1
-fi
+#echo -n "Install TSM clinet? (y/n): "
+#read -e AGREE_INST
+#if [ $AGREE_INST != "y" ]
+# then
+#   echo "Install refused."
+#   exit 1
+#fi
 
 echo "Install begin:"
 case $OS_DEP_INSTALL in

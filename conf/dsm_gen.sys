@@ -1,6 +1,6 @@
 COMMmethod         TCPip
-TCPPort            {{ pillar.tsm.client.server.get('port', '1500') }}
-TCPServeraddress   {{ pillar.tsm.client.server.host }}
+TCPPort {{ pillar.tsm.client.server.get('port', '1500') }}
+TCPServeraddress {{ pillar.tsm.client.server.host }}
 PASSWORDAccess     generate
 managedservices    schedule webclient
 *   SCHEDMode          prompted

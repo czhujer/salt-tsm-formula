@@ -54,7 +54,7 @@ tsm_client_install:
   - name: ./ispc_install.sh {{ pillar.tsm.client.name }}
   - unless: "test -e /opt/tivoli"
   - require:
-    - name: /root/tsmc_lin_{{ tsm_version }}/ispc_install.sh
+    - file: /root/tsmc_lin_{{ tsm_version }}/ispc_install.sh
 
 {% endif %}
 
