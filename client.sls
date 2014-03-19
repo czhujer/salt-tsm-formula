@@ -59,7 +59,7 @@ tsm_client_centos_packages5:
 
 {% endif %}
 
-/etc/init.d/tivoli.sh
+/etc/init.d/tivoli.sh:
   file.managed:
   - source: salt://tsm/conf/tivoli.sh
   - template: jinja
