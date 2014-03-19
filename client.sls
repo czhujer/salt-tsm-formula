@@ -106,6 +106,15 @@ tsm_client_centos_packages5:
   - require:
     - file: /etc/init.d/tivoli.sh
 
+tsm_client_install:
+  cmd.run:
+    - cwd: /root
+    - name: ./tsm_fill_login.sh
+    - unless: "timeout 10 /opt/tivoli/tsm/client/ba/bin/dsmc q ses;"
+    - require:
+      - file: /opt/tivoli/tsm/client/ba/bin/dsm.sys
+      - file: /opt/tivoli/tsm/client/ba/bin/dsm.opt
+
 tsm_client_service:
   service.running:
   - name: tivoli.sh
