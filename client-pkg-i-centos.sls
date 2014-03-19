@@ -1,3 +1,7 @@
+{%- set czech_support = pillar.tsm.client.get('czech_support', false) %}
+
+{%- set default_runlevel = pillar.tsm.client.get('default_runlevel', 3) %}
+
 {% if grains.osarch == "x86_64" %}
 
 tsm_client_centos_pkg_i1:
