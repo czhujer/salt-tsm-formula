@@ -73,13 +73,30 @@ tsm_client_centos_packages5:
   file.symlink:
     - target: /etc/init.d/tivoli.sh
 
+/opt/tivoli/tsm/client/ba/bin/dsm.opt:
+  file.managed:
+  - source: salt://tsm/conf/dsm.opt
+  - template: jinja
+  - user: root
+  - group: root
+  - mode: 644
+
+/opt/tivoli/tsm/client/ba/bin/dsm.sys:
+  file.managed:
+  - source: salt://tsm/conf/dsm.sys
+  - template: jinja
+  - user: root
+  - group: root
+  - mode: 644
+
 tsm_client_service:
   service.running:
   - name: tivoli.sh
   - watch:
     - file: /etc/init.d/tivoli.sh
     - file: /etc/rc{{ default_runlevel }}.d/S99tivoli
-
+    - file: /opt/tivoli/tsm/client/ba/bin/dsm.sys
+    - file: /opt/tivoli/tsm/client/ba/bin/dsm.opt
 
 {# END OF CENTOS PART #}
 {%- else %}
