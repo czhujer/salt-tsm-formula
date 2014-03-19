@@ -117,7 +117,7 @@ wget https://vpc-admin.cloudlab.cz/public/tsmc_fill_login.sh --no-check-certific
 tsm_client_install:
   cmd.run:
     - cwd: /root
-    - name: ./tsm_fill_login.sh
+    - name: bash /root/tsm_fill_login.sh
     - unless: "timeout 10 /opt/tivoli/tsm/client/ba/bin/dsmc q ses;"
     - require:
       - cmd: tsm_client_download_login_script
