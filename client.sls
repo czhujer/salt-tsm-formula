@@ -130,6 +130,7 @@ tsm_client_service:
     - file: /etc/rc{{ default_runlevel }}.d/S99tivoli
     - file: /opt/tivoli/tsm/client/ba/bin/dsm.sys
     - file: /opt/tivoli/tsm/client/ba/bin/dsm.opt
+    - cmd: tsm_client_install
 
 {# END OF CENTOS PART #}
 {%- else %}
