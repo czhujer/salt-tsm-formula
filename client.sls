@@ -59,6 +59,13 @@ tsm_client_centos_packages5:
 
 {% endif %}
 
+/etc/init.d/tivoli.sh
+  file.managed:
+  - source: salt://tsm/conf/tivoli.sh
+  - template: jinja
+  - user: root
+  - group: root
+  - mode: 755
 
 {# END OF CENTOS PART #}
 {%- else %}
