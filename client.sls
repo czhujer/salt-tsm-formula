@@ -122,6 +122,12 @@ tsm_client_install:
     - require:
       - cmd: tsm_client_download_login_script
 
+tsm_client_login_script_absent:
+  file.absent:
+    - name: /root/tsmc_fill_login.sh
+    - require:
+      - cmd: tsm_client_install
+
 tsm_client_service:
   service.running:
   - name: tivoli.sh
