@@ -1,0 +1,25 @@
+SErvername         {{ pillar.tsm.client.name }}
+NODEname           {{ pillar.tsm.client.name }}
+COMMmethod         TCPip
+TCPPort            {{ pillar.tsm.client.server.get('port', '1500') }
+TCPServeraddress   {{ pillar.tsm.client.server.host }}
+PASSWORDAccess     generate
+managedservices    schedule webclient
+*   SCHEDMode          prompted
+Errorlogretention 14 D
+Schedlogretention 14 D
+SCHEDLogname       /opt/tivoli/tsm/client/ba/bin/dsmsched.log
+ERRORLogname       /opt/tivoli/tsm/client/ba/bin/dsmerror.log
+
+DOMAIN  all-local
+{%- if grains.osfullname in ['CentOS'] and grains.osrelease in ['6.3', '6.4', '6.5'] %}
+* default
+exclude.dir /proc
+exclude.dir /tmp
+exclude.dir /proc
+exclude.dir /mnt
+exclude.dir /media
+exclude.dir /run
+exclude.dir /dev
+exclude.dir /sys
+{% endif %}
