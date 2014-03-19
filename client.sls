@@ -1,5 +1,7 @@
 {%- set czech_support = pillar.tsm.client.get('czech_support', false) %}
 
+{%- set default_runlevel = pillar.tsm.client.get('default_runlevel', 3) %}
+
 {%- if pillar.tsm.client.enabled %}
 
 {# 
@@ -66,6 +68,10 @@ tsm_client_centos_packages5:
   - user: root
   - group: root
   - mode: 755
+
+/etc/init.d/tivoli.sh:
+  file.symlink:
+    - target: /etc/rc{{ default_runlevel }}.d/S99tivoli
 
 {# END OF CENTOS PART #}
 {%- else %}

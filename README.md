@@ -8,6 +8,7 @@
     tsm:
       client:
         enabled: true
+        default_runlevel: 3
         name: tsm_client_name
         password: tsm_client_pass
         server:
