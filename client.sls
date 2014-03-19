@@ -9,13 +9,12 @@
 
 {%- if grains.osfullname in ['CentOS'] and grains.osrelease in ['6.3', '6.4', '6.5'] %}
 {# 
-#   CENTOS PACKAGE PART
+#   CENTOS PART
 #}
 
 include:
 - tsm.client-pkg-i-centos
 
-include:
 - tsm.client-common
 
 {# END OF CENTOS PART #}
