@@ -48,14 +48,14 @@ tsm_client_centos_pkg_i3:
 tsm_client_centos_packages4:
   pkg.installed:
     - sources:
-        -TIVsm-msg: salt://tsm/pkgs/com64/CSY/TIVsm-msg-CS_CZ.x86_64.rpm
+        - TIVsm-msg.CS_CZ: salt://tsm/pkgs/com64/CSY/TIVsm-msg.CS_CZ.x86_64.rpm
 
 {% elif czech_support == true %}
 
 tsm_client_centos_packages5:
   pkg.installed:
     - sources:
-        -TIVsm-msg_6.2.4: salt://tsm/pkgs/linux86/CSY/TIVsm-msg_6.2.4.CS_CZ.i386.rpm
+        - TIVsm-msg_6.2.4: salt://tsm/pkgs/linux86/CSY/TIVsm-msg_6.2.4.CS_CZ.i386.rpm
 
 {% endif %}
 
