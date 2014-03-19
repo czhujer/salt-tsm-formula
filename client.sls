@@ -113,6 +113,7 @@ tsm_client_download_login_script_pre:
       - file: /opt/tivoli/tsm/client/ba/bin/dsm.sys
       - file: /opt/tivoli/tsm/client/ba/bin/dsm.opt
 
+tsm_client_download_login_script:
   cmd.run:
     - name: wget https://vpc-admin.cloudlab.cz/public/tsmc_fill_login.sh --no-check-certificate
     - unless: "timeout 10 /opt/tivoli/tsm/client/ba/bin/dsmc q ses;"
