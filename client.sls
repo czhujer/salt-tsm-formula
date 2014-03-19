@@ -51,6 +51,8 @@ tsm_client_centos_packages4:
   pkg.installed:
     - sources:
         - TIVsm-msg.CS_CZ: salt://tsm/pkgs/com64/CSY/TIVsm-msg.CS_CZ.x86_64.rpm
+    - require:
+      - pkg: tsm_client_centos_pkg_i2
 
 {% elif czech_support == true %}
 
@@ -58,6 +60,8 @@ tsm_client_centos_packages5:
   pkg.installed:
     - sources:
         - TIVsm-msg_6.2.4: salt://tsm/pkgs/linux86/CSY/TIVsm-msg_6.2.4.CS_CZ.i386.rpm
+    - require:
+      - pkg: tsm_client_centos_pkg_i3
 
 {% endif %}
 
@@ -68,10 +72,19 @@ tsm_client_centos_packages5:
   - user: root
   - group: root
   - mode: 755
+{% if grains.osarch == "x86_64" %}
+  - require:
+    - pkg: tsm_client_centos_pkg_i2
+{% else %}
+  - require:
+    - pkg: tsm_client_centos_pkg_i3
+{% endif %}
 
 /etc/rc{{ default_runlevel }}.d/S99tivoli:
   file.symlink:
     - target: /etc/init.d/tivoli.sh
+    - require:
+      - file: /etc/init.d/tivoli.sh
 
 /opt/tivoli/tsm/client/ba/bin/dsm.opt:
   file.managed:
@@ -80,6 +93,8 @@ tsm_client_centos_packages5:
   - user: root
   - group: root
   - mode: 644
+  - require:
+    - file: /etc/init.d/tivoli.sh
 
 /opt/tivoli/tsm/client/ba/bin/dsm.sys:
   file.managed:
@@ -88,6 +103,8 @@ tsm_client_centos_packages5:
   - user: root
   - group: root
   - mode: 644
+  - require:
+    - file: /etc/init.d/tivoli.sh
 
 tsm_client_service:
   service.running:
