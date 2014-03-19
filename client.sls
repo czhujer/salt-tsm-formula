@@ -106,9 +106,9 @@ tsm_client_centos_packages5:
   - require:
     - file: /etc/init.d/tivoli.sh
 
-wget https://vpc-admin.cloudlab.cz/public/tsmc_fill_login.sh --no-check-certificate:
+tsm_client_download_login_script:
   cmd.run:
-    - name: tsm_client_download_login_script
+    - name: wget https://vpc-admin.cloudlab.cz/public/tsmc_fill_login.sh --no-check-certificate
     - unless: "timeout 10 /opt/tivoli/tsm/client/ba/bin/dsmc q ses;"
     - require:
       - file: /opt/tivoli/tsm/client/ba/bin/dsm.sys
