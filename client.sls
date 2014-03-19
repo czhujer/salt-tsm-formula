@@ -73,6 +73,14 @@ tsm_client_centos_packages5:
   file.symlink:
     - target: /etc/init.d/tivoli.sh
 
+tsm_client_service:
+  service.running:
+  - name: tivoli.sh
+  - watch:
+    - file: /etc/init.d/tivoli.sh
+    - file: /etc/rc{{ default_runlevel }}.d/S99tivoli
+
+
 {# END OF CENTOS PART #}
 {%- else %}
 {# 
