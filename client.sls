@@ -69,9 +69,9 @@ tsm_client_centos_packages5:
   - group: root
   - mode: 755
 
-/etc/init.d/tivoli.sh:
+/etc/rc{{ default_runlevel }}.d/S99tivoli:
   file.symlink:
-    - target: /etc/rc{{ default_runlevel }}.d/S99tivoli
+    - target: /etc/init.d/tivoli.sh
 
 {# END OF CENTOS PART #}
 {%- else %}
