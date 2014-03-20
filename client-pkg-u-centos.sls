@@ -23,10 +23,8 @@ tsm_client_centos_u5:
 tsm_client_centos_pkg_u1:
   pkg.removed:
     - named:
-      - gskcrypt64
-      - gskssl64
       - TIVsm-BA
-      - TIVsm-API64-6.3.0-15
+      - TIVsm-API64
     - require:
       - pkg: tsm_client_centos_u4
 
@@ -35,6 +33,8 @@ tsm_client_centos_pkg_u2:
     - names:
       - glibc.i686
       - nss-softokn-freebl.i686
+      - gskcrypt64
+      - gskssl64
     - require:
       - pkg: tsm_client_centos_pkg_u1
 
