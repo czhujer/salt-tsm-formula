@@ -43,7 +43,7 @@ cmd_unsupor_os:
 {%- endif %}
 
 {# END OF piller.tsm.client.enabled #}
-{% elif pillar.tsm.client.enable == false %}
+{% elif pillar.tsm.client.enabled == false %}
 
 {# 
 ##
