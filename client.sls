@@ -18,7 +18,7 @@ include:
 - tsm.client-common
 
 {# END OF CENTOS PART #}
-{% elif grains.osfullname in ['CentOS'] and grains.osrelease in ['12.04'] and grains.osarch == "amd64" %}
+{% elif grains.osfullname in ['Ubuntu'] and grains.osrelease in ['12.04'] and grains.osarch == "amd64" %}
 {# 
 #   UBUNTU PART
 #}
