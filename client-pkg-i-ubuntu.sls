@@ -4,6 +4,7 @@ tsm_client_ubuntu_update:
   pkg.uptodate:
     - refresh
 
+{#
 tsm_client_ubuntu_pkg_i1:
   pkg.installed:
     - names:
@@ -23,3 +24,4 @@ tsm_client_ubuntu_pkg_i2:
       - TIVsm-API64: salt://tsm/pkgs/Ubnt_12.4_x64/TIVsm-BA-6.3.1.deb
     - require:
       - pkg: tsm_client_ubuntu_pkg_i1
+#}
