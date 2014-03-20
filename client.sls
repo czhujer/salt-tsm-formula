@@ -26,6 +26,8 @@ include:
 include:
 - tsm.client-pkg-i-ubuntu
 
+- tsm.client-ubuntu
+
 - tsm.client-common
 
 {%- else %}

@@ -13,7 +13,7 @@
   - mode: 755
 {% if grains.osfullname in ['Ubuntu'] and grains.osrelease in ['12.04'] and grains.osarch == "amd64" %}
   - require:
-    - pkg: tsm_client_ubuntu_pkg_i3
+    - pkg: tsm_client_ubuntu_cosi_
 {% elif grains.osarch == "x86_64" %}
   - require:
     - pkg: tsm_client_centos_pkg_i2
