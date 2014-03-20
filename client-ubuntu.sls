@@ -8,6 +8,7 @@
   - require:
     - pkg: tsm_client_ubuntu_pkg_i3
 
+{#
 mkdir /var/lock/subsys
 
 ln -s /opt/tivoli/tsm/client/api/bin64/libgpfs.so /usr/lib/libgpfs.so
@@ -18,4 +19,4 @@ ln -s /usr/local/ibm/gsk8_64/lib64/libgsk8cms_64.so  /usr/lib/libgsk8cms_64.so
 ln -s /usr/local/ibm/gsk8_64/lib64/libgsk8sys_64.so /usr/lib/libgsk8sys_64.so
 
 ldconfig
-
+#}
