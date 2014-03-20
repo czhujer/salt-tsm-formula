@@ -18,11 +18,19 @@ include:
 - tsm.client-common
 
 {# END OF CENTOS PART #}
+{% elif grains.osfullname in ['CentOS'] and grains.osrelease in ['12.04'] and grains.osarch == "amd64" %}
+{# 
+#   UBUNTU PART
+#}
+
+include:
+- tsm.client-pkg-i-ubuntu
+
+- tsm.client-common
+
 {%- else %}
 {# 
-##
 #   NON-SUPPORT OS
-##
 #}
 
 cmd_unsupor_os:
