@@ -1,10 +1,12 @@
 {%- set czech_support = pillar.tsm.client.get('czech_support', false) %}
 
+{# New in version Helium
+
 tsm_client_ubuntu_update:
   pkg.uptodate:
     - refresh: true
+#}
 
-{#
 tsm_client_ubuntu_pkg_i1:
   pkg.installed:
     - names:
@@ -12,8 +14,10 @@ tsm_client_ubuntu_pkg_i1:
       - libstdc++6
       - ksh
       - ia32-libs
+{#
     - require:
       - pkg: tsm_client_ubuntu_update
+#}
 
 tsm_client_ubuntu_pkg_i2:
   pkg.installed:
@@ -24,4 +28,4 @@ tsm_client_ubuntu_pkg_i2:
       - TIVsm-API64: salt://tsm/pkgs/Ubnt_12.4_x64/TIVsm-BA-6.3.1.deb
     - require:
       - pkg: tsm_client_ubuntu_pkg_i1
-#}
+
