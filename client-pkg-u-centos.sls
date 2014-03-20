@@ -4,6 +4,8 @@ tsm_client_centos_u4:
   pkg.removed:
     - names:
         - TIVsm-msg.CS_CZ
+    - require:
+      - file: /etc/init.d/tivoli.sh_absent
 
 {% elif czech_support == true %}
 
@@ -11,6 +13,8 @@ tsm_client_centos_u5:
   pkg.removed:
     - names:
         - TIVsm-msg_6.2.4
+    - require:
+      - file: /etc/init.d/tivoli.sh_absent
 
 {% endif %}
 
