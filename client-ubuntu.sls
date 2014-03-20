@@ -51,7 +51,7 @@
     - require:
       - file: /var/lock/subsys
 
-tsm_client_install_ldconfig:
+tsm_client_ubuntu_install_ldconfig:
   cmd.run:
   - name: ldconfig
   - watch:
