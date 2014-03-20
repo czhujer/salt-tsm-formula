@@ -8,15 +8,56 @@
   - require:
     - pkg: tsm_client_ubuntu_pkg_i3
 
-{#
-mkdir /var/lock/subsys
+/var/lock/subsys:
+  file.directory:
+    - user: root
+    - group: root
+    - mode: 755
+    - makedirs: True
 
-ln -s /opt/tivoli/tsm/client/api/bin64/libgpfs.so /usr/lib/libgpfs.so
-ln -s /opt/tivoli/tsm/client/api/bin64/libdmapi.so /usr/lib/libdmapi.so
-ln -s /usr/local/ibm/gsk8_64/lib64/libgsk8ssl_64.so  /usr/lib/libgsk8ssl_64.so
-ln -s /usr/local/ibm/gsk8_64/lib64/libgsk8iccs_64.so /usr/lib/libgsk8iccs_64.so
-ln -s /usr/local/ibm/gsk8_64/lib64/libgsk8cms_64.so  /usr/lib/libgsk8cms_64.so
-ln -s /usr/local/ibm/gsk8_64/lib64/libgsk8sys_64.so /usr/lib/libgsk8sys_64.so
+/usr/lib/libgpfs.so:
+  file.symlink:
+    - target: /opt/tivoli/tsm/client/api/bin64/libgpfs.so
+    - require:
+      - file: /var/lock/subsys
 
-ldconfig
-#}
+/usr/lib/libdmapi.so:
+  file.symlink:
+    - target: /opt/tivoli/tsm/client/api/bin64/libdmapi.so
+    - require:
+      - file: /var/lock/subsys
+
+/usr/lib/libgsk8ssl_64.so:
+  file.symlink:
+    - target: /usr/local/ibm/gsk8_64/lib64/libgsk8ssl_64.so
+    - require:
+      - file: /var/lock/subsys
+
+/usr/lib/libgsk8iccs_64.so:
+  file.symlink:
+    - target: /usr/local/ibm/gsk8_64/lib64/libgsk8iccs_64.so
+    - require:
+      - file: /var/lock/subsys
+
+/usr/lib/libgsk8cms_64.so:
+  file.symlink:
+    - target: /usr/local/ibm/gsk8_64/lib64/libgsk8cms_64.so
+    - require:
+      - file: /var/lock/subsys
+
+/usr/lib/libgsk8sys_64.so:
+  file.symlink:
+    - target: /usr/local/ibm/gsk8_64/lib64/libgsk8sys_64.so
+    - require:
+      - file: /var/lock/subsys
+
+tsm_client_install_ldconfig:
+  cmd.run:
+  - name: ldconfig
+  - watch:
+    - file: /usr/lib/libgpfs.so
+    - file: /usr/lib/libdmapi.so
+    - file: /usr/lib/libgsk8ssl_64.so
+    - file: /usr/lib/libgsk8iccs_64.so
+    - file: /usr/lib/libgsk8cms_64.so
+    - file: /usr/lib/libgsk8sys_64.so
