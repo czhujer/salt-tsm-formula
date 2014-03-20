@@ -40,3 +40,12 @@
           port: 1500
 
 ## Read more
+
+## Issues
+
+* part "cmd.run ldconfig" is executed every time on Ubuntu 12.04
+
+* switching variable (czech_support) does not work alone (= with out enable/disable all state)
+
+* script "tsmc_fill_login.sh" does not work
+

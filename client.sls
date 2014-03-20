@@ -56,51 +56,10 @@ cmd_unsupor_os:
 #   CENTOS PART
 #}
 
-{% if grains.osarch == "x86_64" %}
+include:
+- tsm.client-common-r
 
-tsm_client_centos_pkg_p1:
-  pkg.removed:
-    - names:
-        - gskcrypt64
-        - gskssl64
-        - TIVsm-BA
-        - TIVsm-API64
-
-tsm_client_centos_pkg_p2:
-  pkg.removed:
-    - names:
-        - glibc.i686
-        - nss-softokn-freebl.i686
-    - require:
-        -pkg: tsm_client-centos_pkg_p1
-
-{% else %}
-
-tsm_client_centos_p3:
-  pkg.removed:
-    - names:
-        - gskcrypt32
-        - gskssl32
-        - TIVsm-BA
-        - TIVsm-API
-
-{% endif %}
-
-{% if grains.osarch == "x86_64" and czech_support == true %}
-
-tsm_client_centos_packages4:
-  pkg.removed:
-    - names:
-        - TIVsm-msg.CS_CZ
-
-{% elif czech_support == true %}
-
-tsm_client_centos_packages5:
-  pkg.removed:
-    - names:
-        - TIVsm-msg_6.2.4.CS_CZ
-
-{% endif %}
+- tsm.client-pkg-u-centos
 
 {# END OF CENTOS PART #}
 {%- else %}
