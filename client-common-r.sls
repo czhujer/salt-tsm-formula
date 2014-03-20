@@ -4,15 +4,18 @@
 #   CENTOS AND UBUNTU PART
 #}
 
+{#
 tsm_client_service_stop:
   service.running:
   - name: tivoli.sh
+#}
 
 /etc/rc{{ default_runlevel }}.d/S99tivoli_absent:
   file.absent:
     - name: /etc/rc{{ default_runlevel }}.d/S99tivoli
-    - require:
+{#    - require:
       - service: tsm_client_service_stop
+#}
 
 /etc/init.d/tivoli.sh_absent:
   file.absent:
