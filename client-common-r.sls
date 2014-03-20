@@ -18,7 +18,7 @@ tsm_client_service_stop:
   file.absent:
     - name: /etc/init.d/tivoli.sh
     - require:
-      - file: /etc/init.d/tivoli.sh_absent
+      - file: /etc/rc{{ default_runlevel }}.d/S99tivoli_absent
 
 
 {#
