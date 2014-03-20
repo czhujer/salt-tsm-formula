@@ -2,7 +2,7 @@
 
 tsm_client_ubuntu_update:
   pkg.uptodate:
-    - refresh
+    - refresh: true
 
 {#
 tsm_client_ubuntu_pkg_i1:
