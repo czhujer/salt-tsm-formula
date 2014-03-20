@@ -28,7 +28,7 @@ tsm_client_centos_pkg_u1:
       - TIVsm-BA
       - TIVsm-API64
     - require:
-      - pkg: tsm_client_centos_pkg_u4
+      - pkg: tsm_client_centos_u4
 
 tsm_client_centos_pkg_u2:
   pkg.removed:
@@ -48,6 +48,6 @@ tsm_client_centos_pkg_u3:
         - TIVsm-BA
         - TIVsm-API
     - require:
-      - pkg: tsm_client_centos_pkg_u5
+      - pkg: tsm_client_centos_u5
 
 {% endif %}
