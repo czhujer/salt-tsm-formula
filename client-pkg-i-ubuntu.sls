@@ -31,8 +31,8 @@ tsm_client_ubuntu_pkg_i2:
 tsm_client_ubuntu_pkg_i3:
   pkg.installed:
     - sources:
-      - TIVsm-API64: salt://tsm/pkgs/Ubnt_12.4_x64/TIVsm-API64-6.3.1.deb
-      - TIVsm-BA: salt://tsm/pkgs/Ubnt_12.4_x64/TIVsm-BA-6.3.1.deb
+      - tivsm-api64: salt://tsm/pkgs/Ubnt_12.4_x64/TIVsm-API64-6.3.1.deb
+      - tivsm-ba: salt://tsm/pkgs/Ubnt_12.4_x64/TIVsm-BA-6.3.1.deb
     - require:
       - pkg: tsm_client_ubuntu_pkg_i2
 
