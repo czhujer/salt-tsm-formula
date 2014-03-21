@@ -4,11 +4,9 @@
 #   CENTOS AND UBUNTU PART
 #}
 
-{#
 tsm_client_service_stop:
-  service.running:
-  - name: tivoli.sh
-#}
+  cmd.run:
+  - name: kill `pidof dsmcad`
 
 /etc/rc{{ default_runlevel }}.d/S99tivoli_absent:
   file.absent:
