@@ -6,7 +6,7 @@
 
 tsm_client_service_stop:
   cmd.run:
-  - name: kill `pidof dsmcad`
+  - name: pidof dsmcad | { read dsm_pid; kill $dsm_pid; }
 
 /etc/rc{{ default_runlevel }}.d/S99tivoli_absent:
   file.absent:
