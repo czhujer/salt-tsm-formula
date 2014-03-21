@@ -62,6 +62,16 @@ include:
 - tsm.client-pkg-u-centos
 
 {# END OF CENTOS PART #}
+{% elif grains.osfullname in ['Ubuntu'] and grains.osrelease in ['12.04'] and grains.osarch == "amd64" %}
+{# 
+#   UBUNTU PART
+#}
+
+include:
+- tsm.client-common-r
+
+- tsm.client-pkg-u-ubuntu
+
 {%- else %}
 {# 
 ##
