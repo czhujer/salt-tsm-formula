@@ -69,7 +69,7 @@ tsm_client_download_login_script:
 tsm_client_install:
   cmd.run:
     - cwd: /root
-    - name: bash /root/tsmc_fill_login.sh {{ fill_login }} {{ fill_pass }}
+    - name: expect /root/tsmc_fill_login.sh {{ fill_login }} {{ fill_pass }}
     - unless: "timeout 10 /opt/tivoli/tsm/client/ba/bin/dsmc q ses;"
     - require:
       - cmd: tsm_client_download_login_script
