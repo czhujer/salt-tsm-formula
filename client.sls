@@ -1,5 +1,5 @@
 
-{%- if pillar.tsm.client.enabled %}
+{%- if pillar.tsm.client.enabled == true %}
 
 {# 
 ##
