@@ -14,6 +14,7 @@ tsm_client_ubuntu_pkg_i1:
       - libstdc++6
       - ksh
       - ia32-libs
+      - expect
 {#
     - require:
       - pkg: tsm_client_ubuntu_update
