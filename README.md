@@ -47,5 +47,5 @@
 
 * switching variable (czech_support) "enable to disable" does nothing (= with out enable/disable all state)
 
-* ~~script "tsmc_fill_login.sh" does not work~~
+* <del>~~script "tsmc_fill_login.sh" does not work~~</del>
 
