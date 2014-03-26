@@ -7,6 +7,7 @@ tsm_client_centos_pkg_i1:
     - names:
       - glibc.i686
       - nss-softokn-freebl.i686
+      - expect
 
 tsm_client_centos_pkg_i2:
   pkg.installed:
