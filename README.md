@@ -15,6 +15,21 @@
           host: 10.0.0.xx
           port: 1500
 
+## Sample pillars with exclude Directories
+
+    tsm:
+      client:
+        enabled: true
+        default_runlevel: 3
+        name: tsm_client_name
+        password: tsm_client_pass
+        server:
+          host: 10.0.0.xx
+          port: 1500
+        exclude_dirs:
+          - /var/www/html/static
+          - /var/tmp
+
 ## Sample pillar with czech language
 
     tsm:
