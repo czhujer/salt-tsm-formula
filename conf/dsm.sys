@@ -23,11 +23,11 @@ exclude.dir /run
 exclude.dir /dev
 exclude.dir /sys
 {% endif %}
-{%- for dir in tsm.exclude_dirs %}
+{%- for dir in pillar.tsm.exclude_dirs %}
 {% if loop.first %}* user defined (in saltstack pillar){% endif %}
 exclude.dir {{ dir }}
 {%- endfor %}
-{%- if mysql.server.get('enabled', false) == true %}
+{%- if pillar.mysql.server.get('enabled', false) == true %}
 * mysql database server data
 exclude.dir /var/lib/mysql
 {% endif %}
