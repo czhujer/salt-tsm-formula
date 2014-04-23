@@ -1,5 +1,3 @@
-{%- set myqslserver = pillar.mysql.get('server', {'enabled':False}) %}
-
 SErvername         {{ pillar.tsm.client.name }}
 NODEname           {{ pillar.tsm.client.name }}
 COMMmethod         TCPip
@@ -29,7 +27,9 @@ exclude.dir /sys
 {% if loop.first %}* user defined (in saltstack pillar){% endif %}
 exclude.dir {{ dir }}
 {%- endfor %}
-{%- if mysqlserver.get('enabled', false) == true %}
+{%- if pillar.mysql defined %}
+{%- if pillar.mysql.server.get('enabled', false) == true %}
 * mysql database server data
 exclude.dir /var/lib/mysql
+{% endif %}
 {% endif %}
