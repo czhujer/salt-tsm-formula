@@ -27,7 +27,7 @@ exclude.dir /sys
 {% if loop.first %}* user defined (in saltstack pillar){% endif %}
 exclude.dir {{ dir }}
 {%- endfor %}
-{%- if pillar.mysql defined %}
+{%- if pillar.mysql is defined %}
 {%- if pillar.mysql.server.get('enabled', false) == true %}
 * mysql database server data
 exclude.dir /var/lib/mysql
