@@ -12,6 +12,7 @@ SCHEDLogname       /opt/tivoli/tsm/client/ba/bin/dsmsched.log
 ERRORLogname       /opt/tivoli/tsm/client/ba/bin/dsmerror.log
 
 DOMAIN  all-local
+* 
 
 {%- if grains.osfullname in ['CentOS'] and grains.osrelease in ['6.3', '6.4', '6.5'] %}
 * default
